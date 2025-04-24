@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Caja Registradora</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h2>Caja Registradora</h2>
+    <button onclick="iniciarCompra()">Iniciar Compra</button>
+    <p id="resultado"></p>
+
+    <script>
+        function iniciarCompra() {
+            let total = 0;
+            let continuar = true;
+            
+            while(continuar) {
+                let producto = prompt("Nombre del producto:");
+                let precio = parseFloat(prompt("Precio del producto:"));
+                
+                if(precio > 0) {
+                    total += precio;
+                    alert("Agregado: " + producto + " - $" + precio);
+                } else {
+                    alert("Precio incorrecto");
+                }
+                
+                continuar = confirm("¿Agregar otro producto?");
+            }
+            
+            document.getElementById("resultado").textContent = "Total: $" + total;
+        }
+    </script>
+</body>
+</html>
